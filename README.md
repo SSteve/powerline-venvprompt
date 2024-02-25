@@ -20,7 +20,7 @@ pipx install powerline-venvprompt
 
 3. Add to your theme.
 
-Typically, the *config.json* file that controls your Powerline setup is in *~/.config/powerline*. The theme itself will be in *~/.config/powerline/themes/shell*. Add the following lines to your theme JSON file:
+Typically, the *config.json* file that controls your Powerline setup is in *~/.config/powerline*. The theme itself will be in *~/.config/powerline/themes/shell*. Add the following lines to your theme JSON file (note the segment specification uses an underscore, not a hyphen):
 
 ```JSON
 {
