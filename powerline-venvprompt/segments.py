@@ -5,7 +5,7 @@ from powerline.theme import requires_segment_info
 
 
 @requires_segment_info
-def venvprompt(ps, segment_info, ignore_venv=False, ignore_conda=False):
+def prompt(ps, segment_info, ignore_venv=False, ignore_conda=False):
     """Return the prompt of the current Python venv. If the venv doesn't have a prompt set, 
     return the name of the current Python or conda virtualenv. This is based on the stock powerline
     segment "powerline.segments.common.env.virtualenv".
