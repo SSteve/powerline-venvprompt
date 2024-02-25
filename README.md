@@ -6,7 +6,9 @@ For example, if a virtual environment was created with the command `python3 -m v
 
 ## Installation
 
-1. Install the package with `pip` or `pipx`.
+1. Make sure Powerline is installed and functioning and that you have a custom configuration (most likely in *~/.config/powerline*).
+
+2. Install the package with `pip` or `pipx`.
 
 ```bash
 pip install --user powerline-venvprompt
@@ -16,7 +18,7 @@ or
 pipx install powerline-venvprompt
 ```
 
-2. Add to your theme.
+3. Add to your theme.
 
 Typically, the *config.json* file that controls your Powerline setup is in *~/.config/powerline*. The theme itself will be in *~/.config/powerline/themes/shell*. Add the following lines to your theme JSON file:
 
@@ -85,12 +87,13 @@ is the same as the function name.)
      ...  "powerline_venvprompt.segments.prompt",
 ```
 
-If you see the message "failed to import module powerline_venvprompt.segments" that might mean Powerline is not searching the folder containing your *powerline_venvprompt* folder. If this is the case, add the folder to your *config.json* file. Example:
+If you see the message "failed to import module powerline_venvprompt.segments" that might mean Powerline is not searching the folder containing your *powerline_venvprompt* folder. If this is the case, add the folder to your *config.json* file. This folder will depend on how you installed `powerline-venvprompt`. Example:
 
 ```json
 "paths": [
     "/path/to/folder"
 ],
 ```
+
 
 If all else fails, use GitHub Issues to report your problem and I'll do my best to help.
