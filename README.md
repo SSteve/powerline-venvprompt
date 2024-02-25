@@ -8,14 +8,10 @@ For example, if a virtual environment was created with the command `python3 -m v
 
 1. Make sure Powerline is installed and functioning and that you have a custom configuration (most likely in *~/.config/powerline*).
 
-2. Install the package with `pip` or `pipx`.
+2. Install the package.
 
 ```bash
-pip install --user powerline-venvprompt
-```
-or
-```bash
-pipx install powerline-venvprompt
+python3 -m pip install --user powerline-venvprompt
 ```
 
 3. Add to your theme.
@@ -87,13 +83,22 @@ is the same as the function name.)
      ...  "powerline_venvprompt.segments.prompt",
 ```
 
-If you see the message "failed to import module powerline_venvprompt.segments" that might mean Powerline is not searching the folder containing your *powerline_venvprompt* folder. If this is the case, add the folder to your *config.json* file. This folder will depend on how you installed `powerline-venvprompt`. Example:
+If you see the message "failed to import module powerline_venvprompt.segments" that might mean Powerline is not searching the folder containing your *powerline_venvprompt* folder. If this is the case, add the folder to your *config.json* file. Use the command `python3 -m pip show powerline-venvprompt | grep Location` to determine the required path.
+
+```bash
+$ pip show powerline-venvprompt | grep Location
+Location: /Users/steve/Library/Python/3.11/lib/python/site-packages
+```
+
+Add this to your *config.json* file:
 
 ```json
 "paths": [
-    "/path/to/folder"
+    "/Users/steve/Library/Python/3.11/lib/python/site-packages"
 ],
 ```
+
+
 
 
 If all else fails, use GitHub Issues to report your problem and I'll do my best to help.
