@@ -2,7 +2,7 @@ import setuptools
 
 setuptools.setup(
     name="powerline-venvprompt",
-    version="0.1",
+    version="1.0.0",
     author="Steve Nicholson",
     author_email="ssteve@mac.com",
     description="A Powerline segment for showing the venv prompt.",
