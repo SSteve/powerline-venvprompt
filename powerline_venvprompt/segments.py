@@ -20,29 +20,29 @@ def prompt(pl, segment_info, ignore_venv=False, ignore_conda=False, ignored_name
 	:param list ignored_names:
 		Names of venvs to ignore. Will then get the name of the venv by ascending to the parent directory.
     """
-    venv_path = segment_info['environ'].get('VIRTUAL_ENV', '')
-
-    if venv_path is None:
-        return None
-    
-    config_file_name = os.path.join(venv_path, "pyvenv.cfg")
-    if os.path.exists(config_file_name):
-        prompt = None
-        with open(config_file_name, "r") as config:
-            for line in config.readlines():
-                key, value = line.split('=')
-                if key.strip() == 'prompt':
-                    # Strip whitespace, single quotes, and double quotes.
-                    prompt = value.strip().strip("'").strip('"')
-                    break
-            
-        if prompt:
-            return [{
-                'contents': prompt,
-                'highlight_groups': ["virtualenv"],
-            }]
-
     if not ignore_venv:
+        venv_path = segment_info['environ'].get('VIRTUAL_ENV', '')
+
+        if venv_path is None:
+            return None
+        
+        config_file_name = os.path.join(venv_path, "pyvenv.cfg")
+        if os.path.exists(config_file_name):
+            prompt = None
+            with open(config_file_name, "r") as config:
+                for line in config.readlines():
+                    key, value = line.split('=')
+                    if key.strip() == 'prompt':
+                        # Strip whitespace, single quotes, and double quotes.
+                        prompt = value.strip().strip("'").strip('"')
+                        break
+                
+            if prompt:
+                return [{
+                    'contents': prompt,
+                    'highlight_groups': ["virtualenv"],
+                }]
+
         for candidate in reversed(segment_info['environ'].get('VIRTUAL_ENV', '').split("/")):
             if candidate and candidate not in ignored_names:
                 return [{
